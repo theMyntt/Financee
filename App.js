@@ -1,6 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useFocusEffect } from "@react-navigation/native";
 
 import Home from "./src/Home";
 import React from "react";
