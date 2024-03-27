@@ -1,9 +1,8 @@
 # Financee
 
-Atenção, este aplicativo foi desenvolvido com o objetivo de treinar design e o ```@react-navigation/stack```.
+Aplicativo de finanças, desenvolvido com React Native, NestJS e MongoDB.
 
-## Telas
+## Pre-requisitos
 
-- Tela de "Get Started"
-- Tela de Login com invalidação de dados
-- Tela inicial
+- [API do Financee](https://github.com/themyntt/financee-api)
+- Banco de dados em MongoDB
