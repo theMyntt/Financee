@@ -8,7 +8,7 @@ import {
   Alert,
 } from "react-native";
 import axios from "axios";
-import { env } from "../../config/envoriment";
+import { env } from "../../../config/envoriment";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
