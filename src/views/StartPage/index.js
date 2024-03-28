@@ -1,5 +1,5 @@
 import { View, TouchableOpacity, StyleSheet, Image, Text } from "react-native";
-import cards from "../img/cards.png";
+import cards from "../../img/cards.png";
 
 export default function StartPage({ navigation }) {
   return (
