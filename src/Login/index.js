@@ -38,7 +38,7 @@ export default function Login({ navigation }) {
           ]);
         });
     } catch {
-      Alert.alert("Err: 500", "Internal server error", [
+      Alert.alert("Err: 500", "Internal error", [
         { text: "OK", onPress: () => console.log("OK Pressed") },
       ]);
     }
