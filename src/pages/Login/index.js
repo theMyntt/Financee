@@ -13,7 +13,6 @@ import { env } from "../../../config/envoriment";
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
 
   function navigateHome() {
     try {
@@ -25,7 +24,7 @@ export default function Login({ navigation }) {
         .then((res) => {
           console.log(res.data);
           if (res.data.email == email) {
-            navigation.navigate("Home");
+            navigation.navigate("Home", { balance: res.data.balance });
           } else {
             Alert.alert("Err: 404", "Invalid email or password. Please double-check your credentials and try again.", [
               { text: "OK", onPress: () => console.log("OK Pressed") },
@@ -61,9 +60,6 @@ export default function Login({ navigation }) {
         placeholderTextColor="#fff"
         secureTextEntry={true}
       />
-      <Text style={{ color: "#fff", marginHorizontal: 30, fontSize: 20 }}>
-        {message}
-      </Text>
       <TouchableOpacity style={style.startBtn} onPress={() => navigateHome()}>
         <Text style={{ fontWeight: 900 }}>Sign In</Text>
       </TouchableOpacity>
