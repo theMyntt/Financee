@@ -8,6 +8,7 @@ import {
   Alert,
 } from "react-native";
 import axios from "axios";
+import { env } from "../../config/envoriment";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ export default function Login({ navigation }) {
   function navigateHome() {
     try {
       axios
-        .post("http://localhost:3000/api/client/get-user", {
+        .post(env.dev.baseUrl + env.dev.routes[0], {
           email: email,
           password: password,
         })
@@ -26,14 +27,20 @@ export default function Login({ navigation }) {
           if (res.data.email == email) {
             navigation.navigate("Home");
           } else {
-            setMessage("Invalid email or password.");
+            Alert.alert("Err: 404", "Invalid email or password. Please double-check your credentials and try again.", [
+              { text: "OK", onPress: () => console.log("OK Pressed") },
+            ]);
           }
         })
         .catch((err) => {
-          console.log(err);
+          Alert.alert("Err: 500", "Internal server error", [
+            { text: "OK", onPress: () => console.log("OK Pressed") },
+          ]);
         });
     } catch {
-      Alert("Error");
+      Alert.alert("Err: 500", "Internal server error", [
+        { text: "OK", onPress: () => console.log("OK Pressed") },
+      ]);
     }
   }
 
