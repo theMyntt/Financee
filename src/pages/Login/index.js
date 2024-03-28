@@ -8,7 +8,7 @@ import {
   Alert,
 } from "react-native";
 import axios from "axios";
-import { env } from "../../../config/envoriment";
+import { env } from "../../../config/environment";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -24,7 +24,7 @@ export default function Login({ navigation }) {
         .then((res) => {
           console.log(res.data);
           if (res.data.email == email) {
-            navigation.navigate("Home", { balance: res.data.balance });
+            navigation.navigate("Home", { balance: res.data.balance, name: res.data.name });
           } else {
             Alert.alert("Err: 404", "Invalid email or password. Please double-check your credentials and try again.", [
               { text: "OK", onPress: () => console.log("OK Pressed") },

@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.brandText}>Welcome back</Text>
+      <Text style={styles.brandText}>Welcome back, {route.params.name}</Text>
       <View style={styles.card}>
         <View style={{ padding: 20 }}>
           <Text style={styles.textWhite}>Your balance:</Text>
