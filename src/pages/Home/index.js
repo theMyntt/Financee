@@ -1,14 +1,24 @@
 import { Text, View, TouchableOpacity } from "react-native";
 import styles from "./index.style"
-import getData from "../../utils/getStorage";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [name, setName] = useState("");
-  const data = getData("client");
-  
+  const [balance, setBalance] = useState(0);
+
   useEffect(() => {
-    console.log("1", data);
+    async function getData() {
+      const data = await AsyncStorage.getItem("client");
+      const parse = JSON.parse(data)
+      if (data!== null) {
+        setName(parse.name);
+        setBalance(parse.balance);
+        console.log(parse.name)
+      }
+    }
+    getData();
   }, [])
 
   return (
@@ -17,7 +27,7 @@ export default function Home() {
       <View style={styles.card}>
         <View style={{ padding: 20 }}>
           <Text style={styles.textWhite}>Your balance:</Text>
-          <Text style={styles.brandText}>USD {data.balance}</Text>
+          <Text style={styles.brandText}>USD {balance}</Text>
         </View>
       </View>
       <View style={styles.card}>
