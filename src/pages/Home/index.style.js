@@ -28,11 +28,21 @@ const styles = StyleSheet.create({
   button: {
     borderColor: "#fff",
     borderWidth: 2,
-    borderRadius: 4,
+    borderRadius: 35,
     padding: 5,
     marginRight: 10,
+    width: 70,
+    height: 70,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     // marginBottom: 10
   },
+  icon: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }
 });
 
 export default styles;
